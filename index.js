@@ -1,14 +1,15 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config.js");
+const cors = require("cors");
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 const ProjectRoutes = require("./routes/projects.routes");
+const JobRoutes = require("./routes/jobs.routes");
 
-const PORT = process.env.PORT || 8080;
-const app = express();
 const acceptedOrigins = [
   "http://localhost:3000",
   "http://stage.eggers.dev",
@@ -17,18 +18,20 @@ const acceptedOrigins = [
 ];
 
 // App Utils
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 app.use(
   cors({
     origin: (origin, cb) => {
       if (!origin) return cb(null, true);
-      if (acceptedOrigins.indexOf(origin) === -1) return;
+      if (acceptedOrigins.indexOf(origin) === -1) {
+      }
       return cb(null, true);
     },
     optionsSuccessStatus: 200,
   })
 );
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Database connection
 mongoose.Promise = global.Promise;
@@ -45,11 +48,8 @@ mongoose
     process.exit();
   });
 
-app.get("/", (req, res) =>
-  res.json({ message: "no Route matched with those values" })
-);
-
 app.listen(PORT, () => {
   console.log(`Spinning on ${PORT}`);
   ProjectRoutes(app);
+  JobRoutes(app);
 });

@@ -1,9 +1,7 @@
-const Projects = require("../models/projects.models");
+const Projects = require("../models/projects.model");
 
 exports.create = (req, res) => {
-  const { body } = req;
-
-  Projects.create(body, (err, newProject) => {
+  Projects.create(req.body, (err, newProject) => {
     if (err) res.status(500).end();
     return res.json(newProject);
   });
