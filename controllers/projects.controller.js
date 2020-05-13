@@ -1,4 +1,4 @@
-const Projects = require("models/projects.model");
+const Projects = require("../models/projects.model");
 
 exports.create = (req, res) => {};
 

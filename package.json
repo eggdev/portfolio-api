@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "link-module-alias",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,11 +27,5 @@
   },
   "devDependencies": {
     "link-module-alias": "^1.2.0"
-  },
-  "_moduleAliases": {
-    "config": "config/",
-    "controllers": "controllers/",
-    "models": "models/",
-    "routes": "routes/"
   }
 }
