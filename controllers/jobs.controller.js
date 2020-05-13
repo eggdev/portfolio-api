@@ -13,3 +13,9 @@ exports.findAll = (req, res) => {
     return res.json(jobs);
   });
 };
+
+exports.findOne = (req, res) => {};
+
+exports.update = (req, res) => {};
+
+exports.delete = (req, res) => {};
