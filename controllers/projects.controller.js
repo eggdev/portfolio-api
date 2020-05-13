@@ -1,10 +1,19 @@
 const Projects = require("../models/projects.models");
 
-exports.create = (req, res) => {};
+exports.create = (req, res) => {
+  const { body } = req;
+
+  Projects.create(body, (err, newProject) => {
+    if (err) res.status(500).end();
+    return res.json(newProject);
+  });
+};
 
 exports.findAll = (req, res) => {
-  console.log(req);
-  res.json({ title: "pop pop" });
+  Projects.find({}, (err, projects) => {
+    if (err) res.status(500).end();
+    return res.json(projects);
+  });
 };
 
 exports.findOne = (req, res) => {};

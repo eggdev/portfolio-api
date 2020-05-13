@@ -30,7 +30,26 @@ app.use(
   })
 );
 
+// Database connection
+mongoose.Promise = global.Promise;
+mongoose
+  .connect(dbConfig.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Successful connection to db");
+  })
+  .catch((err) => {
+    console.log("Could not connect to db...", err);
+    process.exit();
+  });
+
+app.get("/", (req, res) =>
+  res.json({ message: "no Route matched with those values" })
+);
+
 app.listen(PORT, () => {
-  console.log("Spinning");
+  console.log(`Spinning on ${PORT}`);
   ProjectRoutes(app);
 });

@@ -1,8 +1,13 @@
 const mongoose = require("mongoose");
 const ProjectsSchema = mongoose.Schema(
   {
-    name: String,
+    title: String,
     description: String,
+    github_url: String,
+    web_url: String,
+    technologies: Array,
+    traffic: String,
+    image: String,
   },
   {
     timestamps: true,
