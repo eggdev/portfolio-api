@@ -48,6 +48,11 @@ mongoose
     process.exit();
   });
 
+const checkingSomeShitOut = (num) => (num / 1000) % 1 === 0;
+for (var i = 0; i < 20000; i++) {
+  if (checkingSomeShitOut(i)) console.log(i, "cool cool cool");
+}
+
 app.listen(PORT, () => {
   console.log(`Spinning on ${PORT}`);
   ProjectRoutes(app);
