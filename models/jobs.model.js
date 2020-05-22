@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const JobsSchema = mongoose.Schema({
-  _id: Object,
   job_title: String,
   company: String,
   location: String,

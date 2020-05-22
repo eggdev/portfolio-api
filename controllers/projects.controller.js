@@ -18,4 +18,6 @@ exports.findOne = (req, res) => {};
 
 exports.update = (req, res) => {};
 
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  return res.json({ warning: "Don't be a dick and delete my stuff" });
+};
