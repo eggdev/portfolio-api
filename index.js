@@ -11,9 +11,8 @@ const ProjectRoutes = require("./routes/projects.routes");
 const JobRoutes = require("./routes/jobs.routes");
 
 const acceptedOrigins = [
-  "http://localhost:3000",
-  "http://stage.eggers.dev",
-  "http://eggers.dev",
+  "https://local.eggdev.in:3000/",
+  "https://remix.eggers.dev",
   "https://eggers.dev",
 ];
 
