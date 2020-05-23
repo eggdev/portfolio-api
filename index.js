@@ -11,13 +11,21 @@ const ProjectRoutes = require("./routes/projects.routes");
 const JobRoutes = require("./routes/jobs.routes");
 
 const acceptedOrigins = [
+  "http://local.eggdev.in:3000",
   "https://local.eggdev.in:3000",
   "https://remix.eggers.dev",
   "https://eggers.dev",
 ];
 
 // App Utils
-app.use(cors());
+const CORSOptions = (req, cb) => {
+  const originUsed = req.header("Origin");
+  const isAccepted = acceptedOrigins.indexOf(originUsed) !== -1;
+  console.log(isAccepted);
+  cb(null, { origin: isAccepted });
+};
+
+app.use(cors(CORSOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
