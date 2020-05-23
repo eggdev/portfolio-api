@@ -7,7 +7,9 @@ const ProjectsSchema = mongoose.Schema({
   web_url: String,
   github: Array,
   description: String,
-  image: String,
+  desktop_image: String,
+  tablet_image: String,
+  mobile_image: String,
   year_built: Number,
 });
 
