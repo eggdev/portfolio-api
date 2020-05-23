@@ -11,8 +11,7 @@ const ProjectRoutes = require("./routes/projects.routes");
 const JobRoutes = require("./routes/jobs.routes");
 
 const acceptedOrigins = [
-  "http://local.eggdev.in:3000",
-  "https://local.eggdev.in:3000",
+  process.env.LOCAL_DOMAIN,
   "https://remix.eggers.dev",
   "https://eggers.dev",
 ];
@@ -21,7 +20,6 @@ const acceptedOrigins = [
 const CORSOptions = (req, cb) => {
   const originUsed = req.header("Origin");
   const isAccepted = acceptedOrigins.indexOf(originUsed) !== -1;
-  console.log(isAccepted);
   cb(null, { origin: isAccepted });
 };
 
