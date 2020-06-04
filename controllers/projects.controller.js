@@ -14,7 +14,12 @@ exports.findAll = (req, res) => {
   });
 };
 
-exports.findOne = (req, res) => {};
+exports.findOne = (req, res) => {
+  Projects.findById(req.params.id, (err, project) => {
+    if (err) res.status(500).end();
+    return res.json(project);
+  });
+};
 
 exports.update = (req, res) => {};
 
