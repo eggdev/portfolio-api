@@ -10,7 +10,11 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Projects.find({}, (err, projects) => {
     if (err) res.status(500).end();
-    return res.json(projects);
+    // Sorting the array to be most recent first
+    const sorted = projects.sort((a, b) =>
+      a.year_built < b.year_built ? 1 : -1
+    );
+    return res.json(sorted);
   });
 };
 
