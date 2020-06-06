@@ -10,7 +10,7 @@ const ProjectsSchema = mongoose.Schema({
   desktop_image: String,
   tablet_image: String,
   mobile_image: String,
-  year_built: Number,
+  year_built: Date,
 });
 
 module.exports = mongoose.model("Projects", ProjectsSchema);
