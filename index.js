@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8080;
 const ProjectRoutes = require("./routes/projects.routes");
 const JobRoutes = require("./routes/jobs.routes");
 const LabRoutes = require("./routes/lab.routes");
+const TwilioRoutes = require("./routes/twilio.routes");
 
 const acceptedOrigins = [
   process.env.LOCAL_DOMAIN,
@@ -49,4 +50,5 @@ app.listen(PORT, () => {
   ProjectRoutes(app);
   JobRoutes(app);
   LabRoutes(app);
+  TwilioRoutes(app);
 });
